@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout - LeftOLuv</title>
+  <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="../assets/css/main.css"/>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header sticky-top bg-light p-3 shadow-sm">
+    <div class="container d-flex justify-content-between">
+      <a href="../index.html" class="btn btn-custom">Home</a>
+    </div>
+  </header>
+
+  <main class="container mt-4">
+    <h2 class="text-center">Checkout</h2>
+    
+    <!-- Cart Summary -->
+    <div id="cart-summary" class="mt-4">
+      <h4>Your Cart</h4>
+      <ul id="cart-list" class="list-group"></ul>
+      <div class="mt-3">
+        <strong>Total: $<span id="cart-total">0.00</span></strong>
+      </div>
+    </div>
+
+    <!-- Checkout Form -->
+    <form id="checkout-form" class="mt-4">
+      <h4>Billing Details</h4>
+      
+      <!-- Full Name -->
+      <div class="mb-3">
+        <label for="name" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="name" required />
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" required />
+      </div>
+
+      <!-- Address Fields -->
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="street1" class="form-label">Street Address 1</label>
+          <input type="text" class="form-control" id="street1" placeholder="123 Main St" required>
+        </div>
+        <div class="col-md-6">
+          <label for="street2" class="form-label">Street Address 2</label>
+          <input type="text" class="form-control" id="street2" placeholder="Apt, Suite, etc.">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label for="city" class="form-label">City</label>
+          <input type="text" class="form-control" id="city" required>
+        </div>
+        <div class="col-md-4">
+          <label for="state" class="form-label">State</label>
+          <input type="text" class="form-control" id="state" required>
+        </div>
+        <div class="col-md-4">
+          <label for="zip" class="form-label">Zip Code</label>
+          <input type="text" class="form-control" id="zip" required>
+        </div>
+      </div>
+
+      <!-- Payment Method -->
+      <div class="mb-3">
+        <label for="payment" class="form-label">Payment Method</label>
+        <select class="form-select" id="payment" required>
+          <option disabled selected>Select Payment Method</option>
+          <option value="credit-card">Credit Card</option>
+          <option value="paypal">PayPal</option>
+          <option value="cash">Cash on Delivery</option>
+        </select>
+      </div>
+
+      <!-- Dynamic Payment Details -->
+      <div id="payment-method-fields" class="mt-3">
+        <!-- Credit Card Fields -->
+        <div id="credit-card-fields" style="display: none;">
+          <div class="mb-3">
+            <label for="card-number" class="form-label">Card Number</label>
+            <input type="text" class="form-control" id="card-number" placeholder="1234 5678 9012 3456" />
+          </div>
+          <div class="mb-3">
+            <label for="card-expiration" class="form-label">Expiration Date</label>
+            <input type="text" class="form-control" id="card-expiration" placeholder="MM/YY" />
+          </div>
+          <div class="mb-3">
+            <label for="card-cvv" class="form-label">CVV</label>
+            <input type="text" class="form-control" id="card-cvv" placeholder="123" />
+          </div>
+        </div>
+
+        <!-- PayPal Fields -->
+        <div id="paypal-fields" style="display: none;">
+          <div class="mb-3">
+            <label for="paypal-email" class="form-label">PayPal Email</label>
+            <input type="email" class="form-control" id="paypal-email" placeholder="you@example.com" />
+          </div>
+        </div>
+
+        <!-- Cash on Delivery Message        
+-->
+        <div id="cash-fields" style="display: none;">
+          <p class="alert alert-info">
+            You have chosen to pay in cash. Please have the exact amount ready and confirm payment with the delivery person upon arrival.
+          </p>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-danger btn-lg mt-3">Confirm Order</button>
+     <!--
+      <a href="order-summary.html" id="submit-btn" class="btn btn-dangerbtn-lg mt-3">Confirm Order</a>
+      --> 
+
+    </form>
+  </main>
+  <style>
+  .form-select:hover,
+.form-select:focus {
+  border-color: #dc3545; /* for example, a red highlight */
+  box-shadow: 0 0 0 0.2rem rgba(220,53,69,.25);
+}
+</style>
+
+  <!-- JavaScript -->
+  <script src="../assets/js/checkout.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/navbar.js"></script>
+
+  <!-- Dynamic Payment Fields Logic -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const paymentSelect = document.getElementById("payment");
+      const creditCardFields = document.getElementById("credit-card-fields");
+      const paypalFields = document.getElementById("paypal-fields");
+      const cashFields = document.getElementById("cash-fields");
+
+      function updatePaymentFields() {
+        const method = paymentSelect.value;
+        creditCardFields.style.display = "none";
+        paypalFields.style.display = "none";
+        cashFields.style.display = "none";
+
+        if (method === "credit-card") {
+          creditCardFields.style.display = "block";
+        } else if (method === "paypal") {
+          paypalFields.style.display = "block";
+        } else if (method === "cash") {
+          cashFields.style.display = "block";
+        }
+      }
+
+      paymentSelect.addEventListener("change", updatePaymentFields);
+      updatePaymentFields(); // Trigger default
+    });
+  </script>
+  <script>
+    document.getElementById("checkout-form").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent default form submission
+  
+  // Optionally, gather billing details and save them
+  const orderDetails = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    address: {
+      street1: document.getElementById("street1").value,
+      street2: document.getElementById("street2").value,
+      city: document.getElementById("city").value,
+      state: document.getElementById("state").value,
+      zip: document.getElementById("zip").value
+    },
+    paymentMethod: document.getElementById("payment").value
+    // You can add more details if needed
+  };
+  localStorage.setItem("orderDetails", JSON.stringify(orderDetails));
+  
+  // Redirect to the Order Summary page
+  window.location.href = "order-summary.html";
+});
+
+  </script>
+</body>
+</html>

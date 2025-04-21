@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Feedback & Ratings | Food Saver</title>
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/css/main.css" rel="stylesheet">
+</head>
+<body>
+  <div id="user-info">
+    <a class="btn-getstarted" href="signin.html" id="signin-btn">Sign In</a>
+</div>
+
+
+  <header class="header sticky-top bg-light p-3 shadow-sm">
+    <div class="container d-flex justify-content-between">
+      <!--<h1 class="sitename">Food Saver</h1> -->
+      <nav>
+        <a href="../index.html" class="btn btn-custom btn-danger">Home</a>
+        <!-- <a href="signup.html" class="btn btn-outline-success">Sign Up</a> -->
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mt-4">
+    <h2 class="text-center">Submit Your Feedback</h2>
+    <p class="text-center">Rate the food quality and service, and recommend your favorite dishes.</p>
+    
+    <form id="feedback-form" class="mt-4">
+      <div class="mb-3">
+        <label for="restaurant" class="form-label">Restaurant Name</label>
+        <input type="text" class="form-control" id="restaurant" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="dish" class="form-label">Dish Name (Optional)</label>
+        <input type="text" class="form-control" id="dish">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Rate the Food Quality</label>
+        <select class="form-control" id="food-rating" required>
+          <option value="5">⭐️⭐️⭐️⭐️⭐️ - Excellent</option>
+          <option value="4">⭐️⭐️⭐️⭐️ - Very Good</option>
+          <option value="3">⭐️⭐️⭐️ - Good</option>
+          <option value="2">⭐️⭐️ - Fair</option>
+          <option value="1">⭐️ - Poor</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Rate the Service</label>
+        <select class="form-control" id="service-rating" required>
+          <option value="5">⭐️⭐️⭐️⭐️⭐️ - Excellent</option>
+          <option value="4">⭐️⭐️⭐️⭐️ - Very Good</option>
+          <option value="3">⭐️⭐️⭐️ - Good</option>
+          <option value="2">⭐️⭐️ - Fair</option>
+          <option value="1">⭐️ - Poor</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="comments" class="form-label">Additional Comments</label>
+        <textarea class="form-control" id="comments" rows="4"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-danger">Submit Feedback</button>
+    </form>
+  </main>
+
+  <script>
+    document.getElementById('feedback-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      let confirmation = confirm("Thank you for your feedback!\n\nClick 'OK' to go to the homepage or 'Cancel' to edit your response.");
+      if (confirmation) {
+        window.location.href = 'index.html';
+      }
+    });
+  </script>
+
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/navbar.js"></script>
+
+</body>
+</html>

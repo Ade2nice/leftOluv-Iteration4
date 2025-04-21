@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Dashboard</title>
+  <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+ 
+
+
+  <header class="header sticky-top bg-light p-3 shadow-sm">
+    <div class="container d-flex justify-content-between">
+      <a href="../index.html" class="sitename"></a>
+      <button id="logout-btn" class="btn btn-custom">Logout</button>
+    </div>
+  </header>
+  </div>
+</header>
+
+<script>
+    document.getElementById("logout-btn").addEventListener("click", function () {
+      // Show a confirmation message
+      alert("You are going back to Home.");
+  
+      // Remove user session (if stored in localStorage)
+      localStorage.removeItem("loggedInUser");
+  
+      // Redirect to homepage (index.html)
+      window.location.href = "../index.html";
+    });
+</script>
+
+<main class="container mt-4">
+  <h2 class="text-center">Restaurant Dashboard</h2>
+  <p class="text-center">List your leftover food items for users.</p>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card p-4">
+        <h4 class="text-center">Add a Food Item</h4>
+        <form id="food-form">
+          <div class="mb-3">
+            <label for="food-name" class="form-label">Food Name</label>
+            <input type="text" class="form-control" id="food-name" required placeholder="e.g., Grilled Chicken, Pasta, Sushi">
+          </div>
+          <div class="mb-3">
+            <label for="food-price" class="form-label">Discounted Price ($)</label>
+            <input type="number" class="form-control" id="food-price" required placeholder="e.g., 5.99">
+          </div>
+          <div class="mb-3">
+            <label for="food-freshness" class="form-label">Freshness Details</label>
+            <input type="text" class="form-control" id="food-freshness" required placeholder="e.g., Freshly made today, Stored in fridge">
+          </div>
+          <div class="mb-3">
+            <label for="food-expiry" class="form-label">Expected Consumption Time</label>
+            <input type="text" class="form-control" id="food-expiry" required placeholder="e.g., Best before 24 hours, Consume by tonight">
+          </div>
+
+          <!-- Image Upload Field -->
+          <div class="mb-3">
+            <label for="food-image" class="form-label">Upload Food Image</label>
+            <input type="file" class="form-control" id="food-image" accept="image/*">
+          </div>
+
+          <!-- Image Preview -->
+          <div class="text-center mb-3">
+            <img id="image-preview" src="" alt="Food Image Preview" class="img-fluid rounded" style="max-width: 200px; display: none;">
+          </div>
+
+          <button type="submit" class="btn btn-custom w-100">List Food Item</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="mt-5 text-center">Your Listed Food Items</h3>
+  <ul id="food-list" class="list-group mt-3"></ul>
+</main>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let user = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (!user || user.role !== "owner") {
+      alert("Access denied! Only restaurant owners can access this page.");
+      window.location.href = "../index.html";
+    }
+
+    // Handle Logout
+    document.getElementById("logout-btn").addEventListener("click", function () {
+      localStorage.removeItem("loggedInUser");
+      window.location.href = "../index.html";
+    });
+
+    // Handle Image Preview
+    document.getElementById("food-image").addEventListener("change", function () {
+      let file = this.files[0];
+      if (file) {
+        let reader = new FileReader();
+        reader.onload = function (e) {
+          document.getElementById("image-preview").src = e.target.result;
+          document.getElementById("image-preview").style.display = "block";
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Handle Food Listing
+    document.getElementById("food-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+      
+      let foodName = document.getElementById("food-name").value;
+      let foodPrice = document.getElementById("food-price").value;
+      let foodFreshness = document.getElementById("food-freshness").value;
+      let foodExpiry = document.getElementById("food-expiry").value;
+      let foodImage = document.getElementById("food-image").files[0];
+      let imageUrl = "";
+
+      if (foodImage) {
+        let reader = new FileReader();
+        reader.readAsDataURL(foodImage);
+        reader.onload = function () {
+          imageUrl = reader.result;
+          saveFoodItem(foodName, foodPrice, foodFreshness, foodExpiry, imageUrl, user.name);
+        };
+      } else {
+        saveFoodItem(foodName, foodPrice, foodFreshness, foodExpiry, "", user.name);
+      }
+    });
+
+    function saveFoodItem(name, price, freshness, expiry, image, owner) {
+      let foodItems = JSON.parse(localStorage.getItem("foodItems")) || [];
+      foodItems.push({ name, price, freshness, expiry, image, owner });
+      localStorage.setItem("foodItems", JSON.stringify(foodItems));
+
+      document.getElementById("food-form").reset();
+      document.getElementById("image-preview").style.display = "none";
+      alert("Food item listed successfully!");
+
+      displayFoodItems();
+    }
+
+    function displayFoodItems() {
+      let foodItems = JSON.parse(localStorage.getItem("foodItems")) || [];
+      let foodList = document.getElementById("food-list");
+      foodList.innerHTML = "";
+
+      foodItems.forEach((item, index) => {
+        let li = document.createElement("li");
+        li.className = "list-group-item";
+        li.innerHTML = `<strong>${item.name}</strong> - $${item.price} <br> 
+          Freshness: ${item.freshness} | Consume By: ${item.expiry} <br> 
+          <em>Listed by: ${item.owner}</em> <br>
+          ${item.image ? `<img src="${item.image}" class="img-fluid rounded mt-2" style="max-width: 100px;">` : ""}
+          <button class="btn btn-danger btn-sm float-end" onclick="removeFoodItem(${index})">Remove</button>`;
+        foodList.appendChild(li);
+      });
+    }
+
+    window.removeFoodItem = function(index) {
+      let foodItems = JSON.parse(localStorage.getItem("foodItems")) || [];
+      foodItems.splice(index, 1);
+      localStorage.setItem("foodItems", JSON.stringify(foodItems));
+      displayFoodItems();
+    };
+
+    displayFoodItems();
+  });
+</script>
+
+<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/navbar.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review Order - LeftOLuv</title>
+  <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <style>
+    .order-summary-container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #fff;
+    }
+    .order-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .order-total {
+      text-align: right;
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header sticky-top bg-light p-3 shadow-sm">
+    <div class="container d-flex justify-content-between">
+      <a href="../index.html" class="btn btn-custom">Home</a>
+    </div>
+  </header>
+
+  <main class="order-summary-container">
+    <h2 class="text-center">Review Your Order</h2>
+    <div id="order-summary-list" class="mt-4">
+      <!-- Order items will be injected here -->
+    </div>
+    <div class="order-total mt-3">
+      Total: $<span id="order-summary-total">0.00</span>
+    </div>
+    <div class="text-center mt-4">
+      <button id="confirm-order-btn" class="btn btn-danger btn-lg">Confirm Order</button>
+      <a href="checkout.html" class="btn btn-secondary btn-lg ms-2">Edit Order</a>
+    </div>
+  </main>
+
+  <script>
+    // Sample function to simulate fetching order details from localStorage
+    function loadOrderSummary() {
+      // Retrieve cart data from localStorage
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const orderList = document.getElementById("order-summary-list");
+      const orderTotalElem = document.getElementById("order-summary-total");
+      
+      let total = 0;
+      orderList.innerHTML = "";
+      
+      cart.forEach(item => {
+        total += item.price * item.quantity;
+        const itemDiv = document.createElement("div");
+        itemDiv.classList.add("order-item");
+        itemDiv.innerHTML = `
+          <span><strong>${item.name}</strong> (x${item.quantity})</span>
+          <span>$${(item.price * item.quantity).toFixed(2)}</span>
+        `;
+        orderList.appendChild(itemDiv);
+      });
+      
+      orderTotalElem.innerText = total.toFixed(2);
+    }
+    
+    document.getElementById("confirm-order-btn").addEventListener("click", function() {
+      // Here you can add code to process the order (e.g., submit to a server)
+      alert("Order Confirmed! Thank you for your purchase.");
+      // Optionally clear the cart:
+      localStorage.removeItem("cart");
+      window.location.href = "../index.html"; // Redirect to home or order confirmation page
+    });
+    
+    // Load the order summary when the page loads
+    document.addEventListener("DOMContentLoaded", loadOrderSummary);
+  </script>
+  
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/navbar.js"></script>
+</body>
+</html>

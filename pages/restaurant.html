@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>LeftOLuv</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+
+  <!-- Favicons -->
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <!-- Main CSS File -->
+  <link href="../assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Yummy
+  * Template URL: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <a href="../index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">Left<span class="text-danger">O</span>Luv</h1>
+      </a>
+
+     
+
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="../index.html#hero">Home</a></li>
+          <li><a href="../index.html#about" class="active">Find a Restaurant</a></li>
+          <li><a href="../pages/dishes.html" >Dishes </a></li>
+          <li><a href="../index.html#review1" >Reviews</a></li>
+          <li><a href="../index.html#stats" >Community Impact</a></li>
+
+  
+          <span id="dynamic-nav"></span> <!-- Dynamic Content Here -->
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+  
+      <!-- Right Side Items -->
+      <div class="d-flex align-items-center gap-3">
+        <div id="user-info">
+          <a class="btn-getstarted" href="../signin.html" id="signin-btn">Sign In</a>
+        </div>
+        <a href="../pages/cart.html" class="cart-icon position-relative">
+          <i class="bi bi-cart"></i>
+          <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+        </a>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </div>
+
+    </div>
+    </div>
+  </header>
+
+  <main class="main">
+
+    
+
+<!-- Restaurant Profile Section -->
+<section class="restaurant-profile py-5">
+    <!-- Previous restaurant info code remains the same -->
+    <div class="container">
+      <div class="row">
+        <!-- Restaurant Image Column -->
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <div class="position-relative">
+            <img src="../assets/img/restaurant_1.jpg" class="img-fluid rounded-3 shadow-sm w-100" alt="Restaurant Front View" style="object-fit: cover; height: 400px;">
+            <div class="position-absolute top-0 end-0 m-3">
+              <div class="bg-danger text-white px-3 py-2 rounded-pill">
+                <i class="bi bi-star-fill me-1"></i>
+                <span class="fw-bold">4.8</span>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Restaurant Details Column -->
+        <div class="col-lg-6">
+          <div class="restaurant-info">
+            <div class="mb-4">
+                <h1 class="fw-bold mb-3">La Piazza Restaurant</h1>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <span class="badge bg-light text-dark">Italian Cuisine</span>
+                  <span class="badge bg-light text-dark">$$$</span>
+                  <span class="badge bg-success">Open Now</span>
+                </div>
+              </div>
+            <!-- Contact Information -->
+          <div class="mb-4">
+            <h4 class="fw-bold mb-3">Contact Information</h4>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <i class="bi bi-geo-alt-fill text-danger me-2"></i>
+                123 Italian Avenue, Downtown, City
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-telephone-fill text-danger me-2"></i>
+                (555) 123-4567
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-envelope-fill text-danger me-2"></i>
+                info@lapiazza.com
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-globe text-danger me-2"></i>
+                www.lapiazza.com
+              </li>
+            </ul>
+          </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Menu Section -->
+      <div class="menu-section mt-5">
+        <div class="text-center mb-4">
+          <h2 class="fw-bold">Our Menu</h2>
+          <p class="text-muted">Explore our delicious offerings</p>
+        </div>
+  
+        <ul class="nav nav-pills mb-4 justify-content-center gap-2" id="menuTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link btn btn-danger active" data-bs-toggle="pill" data-bs-target="#popular" type="button">Surprise Saves </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link btn btn-outline-danger" data-bs-toggle="pill" data-bs-target="#starters" type="button">End-of-Day Specials</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link btn btn-outline-danger" data-bs-toggle="pill" data-bs-target="#mains" type="button">Last Chance Bites</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link btn btn-outline-danger" data-bs-toggle="pill" data-bs-target="#desserts" type="button">Rescue Ready</button>
+            </li>
+          </ul>
+  
+        <!-- Menu Items Grid -->
+        <div class="tab-content" id="menuTabContent">
+          <div class="tab-pane fade show active" id="popular">
+            <div class="row g-4">
+              <!-- Menu Item 1 -->
+              <div class="col-lg-3 col-md-6">
+                <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+                  <div class="position-relative">
+                    <img src="../assets/img/menu/menu-item-1.png" class="w-100" alt="Dish 1" style="height: 200px; object-fit: cover;">
+                    <div class="position-absolute top-0 end-0 m-2">
+                      <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                        <i class="bi bi-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="p-3">
+                    <h5 class="fw-bold mb-1">Margherita Pizza</h5>
+                    <p class="text-muted small mb-2">Fresh tomatoes, mozzarella, basil</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <del>$25.99</del> <span class="fw-bold text-danger">$14.99</span> 
+
+                        <button class="btn btn-outline-danger btn-sm add-to-cart"
+        data-id="1"
+        data-name="Margherita Pizza"
+        data-price="14.99">
+    Add to Cart
+</button>
+
+                       
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <!-- Menu Item 2 -->
+              <div class="col-lg-3 col-md-6">
+                <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+                  <div class="position-relative">
+                    <img src="../assets/img/menu/menu-item-2.png" class="w-100" alt="Dish 2" style="height: 200px; object-fit: cover;">
+                    <div class="position-absolute top-0 end-0 m-2">
+                      <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                        <i class="bi bi-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="p-3">
+                    <h5 class="fw-bold mb-1">Pasta Carbonara</h5>
+                    <p class="text-muted small mb-2">Creamy sauce, pancetta, egg</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <del>$27.99</del> <span class="fw-bold text-danger">$16.99</span>
+                      <button class="btn btn-outline-danger btn-sm add-to-cart"
+        data-id="2"
+        data-name="Pasta Carbonara"
+        data-price="16.99">
+    Add to Cart
+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <!-- Menu Item 3 -->
+              <div class="col-lg-3 col-md-6">
+                <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+                  <div class="position-relative">
+                    <img src="../assets/img/menu/menu-item-3.png" class="w-100" alt="Dish 3" style="height: 200px; object-fit: cover;">
+                    <div class="position-absolute top-0 end-0 m-2">
+                      <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                        <i class="bi bi-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="p-3">
+                    <h5 class="fw-bold mb-1">Tiramisu</h5>
+                    <p class="text-muted small mb-2">Classic Italian dessert</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <del>$29.99</del> <span class="fw-bold text-danger">$8.99</span>
+                      <button class="btn btn-outline-danger btn-sm add-to-cart"
+        data-id="3"
+        data-name="Tiramisu"
+        data-price="8.99">
+    Add to Cart
+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              
+            </div>
+          </div>
+        </div>
+
+
+
+<!-- Menu Items Grid2 starters -->
+<div class="tab-content" id="menuTabContent">
+    <div class="tab-pane fade show" id="starters">
+      <div class="row g-4">
+        <!-- Menu Item 1 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+            <div class="position-relative">
+              <img src="../assets/img/menu/menu-item-1.png" class="w-100" alt="Dish 1" style="height: 200px; object-fit: cover;">
+              <div class="position-absolute top-0 end-0 m-2">
+                <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+            <div class="p-3">
+              <h5 class="fw-bold mb-1">Margherita Pizza</h5>
+              <p class="text-muted small mb-2">Fresh tomatoes, mozzarella, basil</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <del>$23.99</del> <span class="fw-bold text-danger">$14.99</span>
+               
+                <button class="btn btn-outline-danger btn-sm add-to-cart"
+                data-id="1"
+                data-name="Margherita Pizza"
+                data-price="14.99">
+            Add to Cart
+        </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Menu Item 4 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+            <div class="position-relative">
+              <img src="../assets/img/menu/menu-item-1.png" class="w-100" alt="Dish 4" style="height: 200px; object-fit: cover;">
+              <div class="position-absolute top-0 end-0 m-2">
+                <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+            <div class="p-3">
+              <h5 class="fw-bold mb-1">Bruschetta</h5>
+              <p class="text-muted small mb-2">Toasted bread with toppings</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <del>$22.99</del> <span class="fw-bold text-danger">$7.99</span>
+                <button class="btn btn-outline-danger btn-sm add-to-cart"
+                data-id="1"
+                data-name="Bruschetta"
+                data-price="7.99">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Menu Items Grid 3 starters -->
+<div class="tab-content" id="menuTabContent">
+    <div class="tab-pane fade show" id="mains">
+      <div class="row g-4">
+        <!-- Menu Item 1 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+            <div class="position-relative">
+              <img src="../assets/img/menu/menu-item-1.png" class="w-100" alt="Dish 1" style="height: 200px; object-fit: cover;">
+              <div class="position-absolute top-0 end-0 m-2">
+                <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+            <div class="p-3">
+              <h5 class="fw-bold mb-1">Margherita Pizza</h5>
+              <p class="text-muted small mb-2">Fresh tomatoes, mozzarella, basil</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <del>$23.99</del> <span class="fw-bold text-danger">$14.99</span>
+               
+                <button class="btn btn-outline-danger btn-sm add-to-cart"
+                data-id="1"
+                data-name="Margherita Pizza"
+                data-price="14.99">
+            Add to Cart
+        </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Menu Item 2 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+            <div class="position-relative">
+              <img src="../assets/img/menu/menu-item-2.png" class="w-100" alt="Dish 2" style="height: 200px; object-fit: cover;">
+              <div class="position-absolute top-0 end-0 m-2">
+                <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+            <div class="p-3">
+              <h5 class="fw-bold mb-1">Pasta Carbonara</h5>
+              <p class="text-muted small mb-2">Creamy sauce, pancetta, egg</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <del>$21.99</del> <span class="fw-bold text-danger">$16.99</span>
+                <button class="btn btn-outline-danger btn-sm add-to-cart"
+                data-id="2"
+                data-name="Pasta Carbonara"
+                data-price="16.99">
+            Add to Cart
+        </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Menu Item 3 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+            <div class="position-relative">
+              <img src="../assets/img/menu/menu-item-3.png" class="w-100" alt="Dish 3" style="height: 200px; object-fit: cover;">
+              <div class="position-absolute top-0 end-0 m-2">
+                <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+            <div class="p-3">
+              <h5 class="fw-bold mb-1">Tiramisu</h5>
+              <p class="text-muted small mb-2">Classic Italian dessert</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <del>$29.99</del> <span class="fw-bold text-danger">$8.99</span>
+                <button class="btn btn-outline-danger btn-sm add-to-cart"
+                data-id="1"
+                data-name="Tiramisu"
+                data-price="8.99">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Menu Item 4 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+            <div class="position-relative">
+              <img src="../assets/img/menu/menu-item-1.png" class="w-100" alt="Dish 4" style="height: 200px; object-fit: cover;">
+              <div class="position-absolute top-0 end-0 m-2">
+                <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+            <div class="p-3">
+              <h5 class="fw-bold mb-1">Bruschetta</h5>
+              <p class="text-muted small mb-2">Toasted bread with toppings</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <del>$20.99</del> <span class="fw-bold text-danger">$7.99</span>
+                <button class="btn btn-outline-danger btn-sm add-to-cart"
+                data-id="1"
+                data-name="Bruschetta"
+                data-price="7.99">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+<!-- Menu Items Grid 4 starters -->
+<div class="tab-content" id="menuTabContent">
+    <div class="tab-pane fade show" id="desserts">
+      <div class="row g-4">
+        <!-- Menu Item 1 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+            <div class="position-relative">
+              <img src="../assets/img/menu/menu-item-1.png" class="w-100" alt="Dish 1" style="height: 200px; object-fit: cover;">
+              <div class="position-absolute top-0 end-0 m-2">
+                <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+            <div class="p-3">
+              <h5 class="fw-bold mb-1">Margherita Pizza</h5>
+              <p class="text-muted small mb-2">Fresh tomatoes, mozzarella, basil</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <del>$43.99</del> <span class="fw-bold text-danger">$14.99</span>
+                
+                <button class="btn btn-outline-danger btn-sm add-to-cart"
+                data-id="1"
+                data-name="Margherita Pizza"
+                data-price="14.99">
+            Add to Cart
+        </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+
+        <!-- Menu Item 3 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+            <div class="position-relative">
+              <img src="../assets/img/menu/menu-item-3.png" class="w-100" alt="Dish 3" style="height: 200px; object-fit: cover;">
+              <div class="position-absolute top-0 end-0 m-2">
+                <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+            <div class="p-3">
+              <h5 class="fw-bold mb-1">Tiramisu</h5>
+              <p class="text-muted small mb-2">Classic Italian dessert</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <del>$39.99</del> <span class="fw-bold text-danger">$8.99</span>
+                <button class="btn btn-outline-danger btn-sm add-to-cart"
+                data-id="1"
+                data-name="Tiramisu"
+                data-price="8.99">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    
+  </section>
+
+  <section class="reviews-section">
+    <div class="container">
+      <h2 class="section-title">Customer Reviews</h2>
+      <p class="section-subtitle">What our guests are saying about us</p>
+      
+      <div class="reviews-container">
+        <!-- Review 1 -->
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-info">
+              <div class="reviewer-name">Emma Rodriguez</div>
+              <div class="review-date">March 15, 2025</div>
+            </div>
+            <div class="rating">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+          </div>
+          <p class="review-text">The Surprise Saves option was amazing! Got a mix of pasta and desserts at a fraction of the regular price. Everything was still fresh and delicious. Definitely coming back for more rescues!</p>
+        </div>
+        
+        <!-- Review 2 -->
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-info">
+              <div class="reviewer-name">James Chen</div>
+              <div class="review-date">March 10, 2025</div>
+            </div>
+            <div class="rating">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star half">★</span>
+            </div>
+          </div>
+          <p class="review-text">The End-of-Day Specials are a fantastic way to enjoy high-quality food while reducing waste. The Margherita Pizza was perfect even at the end of the day. Love the concept and the execution!</p>
+        </div>
+        
+        <!-- Review 3 -->
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-info">
+              <div class="reviewer-name">Sarah Johnson</div>
+              <div class="review-date">March 5, 2025</div>
+            </div>
+            <div class="rating">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+          </div>
+          <p class="review-text">The Tiramisu from the Last Chance Bites section was out of this world! You'd never know it was near the end of its shelf life. Incredible value and I'm happy to be part of reducing food waste.</p>
+        </div>
+      </div>
+      
+<!-- CTA Text + Leave a Review Button -->
+<div class="text-center mt-5">
+  <p class="fs-5 text-muted">
+    You too enjoyed our food? 🥰<br>
+    Leave a review and help others discover it!
+  </p>
+  <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#reviewModal">
+    ✍️ Leave a Review
+  </button>
+</div>
+
+<!-- Review Modal -->
+<div class="modal fade" id="reviewModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-danger">
+      <div class="modal-header bg-light">
+        <h5 class="modal-title">Share Your Experience</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="reviewForm">
+          <div class="mb-3">
+            <label for="review-name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="review-name" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Rating</label>
+            <select class="form-select" required>
+              <option value="">Select Rating</option>
+              <option value="5">★★★★★ - Excellent</option>
+              <option value="4">★★★★☆ - Good</option>
+              <option value="3">★★★☆☆ - Okay</option>
+              <option value="2">★★☆☆☆ - Poor</option>
+              <option value="1">★☆☆☆☆ - Bad</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="review-text" class="form-label">Your Review</label>
+            <textarea class="form-control" id="review-text" rows="3" placeholder="Tell us what you loved (or what we can improve!)" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-danger w-100">Submit Review</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+      <!-- Leave a Review Form
+      <div class="leave-review">
+        <h3>Share Your Experience</h3>
+        <form class="review-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your Name">
+          </div>
+          <div class="form-group">
+            <label for="rating">Rating</label>
+            <div class="rating-selector">
+              <input type="radio" name="rating" id="star5" value="5"><label for="star5">★</label>
+              <input type="radio" name="rating" id="star4" value="4"><label for="star4">★</label>
+              <input type="radio" name="rating" id="star3" value="3"><label for="star3">★</label>
+              <input type="radio" name="rating" id="star2" value="2"><label for="star2">★</label>
+              <input type="radio" name="rating" id="star1" value="1"><label for="star1">★</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="review-text">Your Review</label>
+            <textarea id="review-text" placeholder="Tell us about your experience..."></textarea>
+          </div>
+          <button type="submit" class="submit-review">Submit Review</button>
+        </form>
+      </div> -->
+    </div>
+  </section>
+
+  
+       
+  </div>
+  
+   
+
+ 
+
+
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Vendor JS Files -->
+
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/js/navbar.js"></script>
+
+
+  <!-- Main JS File -->
+  <script src="../assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize the carousel with no auto-sliding
+      var carousel = new bootstrap.Carousel(document.getElementById('restaurantCarousel'), {
+        interval: false,
+        wrap: true
+      });
+    });
+    </script>
+
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggleBtn = document.getElementById('toggleAdvanced');
+      const advancedFilters = document.querySelector('.advanced-filters');
+      
+      toggleBtn.addEventListener('click', function() {
+        const isHidden = advancedFilters.style.display === 'none';
+        advancedFilters.style.display = isHidden ? 'block' : 'none';
+        toggleBtn.textContent = isHidden ? 'Hide Advanced Filters' : 'Show Advanced Filters';
+      });
+    });
+    </script>
+      <script src="../assets/js/cart.js"></script>
+
+</html>

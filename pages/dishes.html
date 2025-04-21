@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>LeftOLuv</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+
+  <!-- Favicons -->
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  
+  <!-- Main CSS File -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <link href="../assets/css/main.css" rel="stylesheet">
+  
+
+  <!-- =======================================================
+  * Template Name: Yummy
+  * Template URL: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <a href="../index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">Left<span class="text-danger">O</span>Luv</h1>
+      </a>
+
+     
+
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="../index.html#hero">Home</a></li>
+          <li><a href="../index.html#about" >Find a Restaurant</a></li>
+          <li><a href="dishes.html" class="active">Dishes </a></li>
+          <li><a href="../index.html#review1" >Reviews</a></li>
+          <li><a href="../index.html#stats" >Community Impact</a></li>
+
+  
+          <span id="dynamic-nav"></span> <!-- Dynamic Content Here -->
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+  
+      <!-- Right Side Items -->
+      <div class="d-flex align-items-center gap-3">
+        <div id="user-info">
+          <a class="btn-getstarted" href="../signin.html" id="signin-btn">Sign In</a>
+        </div>
+        <a href="../pages/cart.html" class="cart-icon position-relative">
+          <i class="bi bi-cart"></i>
+          <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+        </a>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </div>
+
+    </div>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Menu Section -->
+      <div class="menu-section mt-5">
+        <div class="text-center mb-4">
+          <h2 class="fw-bold">Explore delicious dishes across restaurants </h2>
+    
+
+          <div class="d-flex justify-content-center mb-4">
+            <div class="input-group w-50 shadow-sm" style="border-radius: 12px; overflow: hidden;">
+              <input
+                type="text"
+                class="form-control border-0 bg-light"
+                id="menuSearch"
+                placeholder="Search for a dish (e.g., Tiramisu, Pizza)..."
+                />
+              <button class="btn btn-danger" type="button" id="search-btn">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+          </div>
+       
+        </div>
+       
+  
+        <ul class="nav nav-pills mb-4 justify-content-center gap-2" id="menuTabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link btn btn-danger active" data-bs-toggle="pill" data-bs-target="#popular" type="button">Surprise Saves </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link btn btn-outline-danger" data-bs-toggle="pill" data-bs-target="#starters" type="button">End-of-Day Specials</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link btn btn-outline-danger" data-bs-toggle="pill" data-bs-target="#mains" type="button">Last Chance Bites</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link btn btn-outline-danger" data-bs-toggle="pill" data-bs-target="#desserts" type="button">Rescue Ready</button>
+          </li>
+        </ul>
+  
+        <!-- Menu Items Grid -->
+        <div class="tab-content" id="menuTabContent">
+          <div class="tab-pane fade show active" id="popular">
+            <div class="row g-4">
+              <!-- Menu Item 1 -->
+              <div class="col-lg-3 col-md-6">
+                <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+                  <div class="position-relative">
+                    <img src="../assets/img/menu/menu-item-1.png" class="w-100" alt="Dish 1" style="height: 200px; object-fit: cover;">
+                    <div class="position-absolute top-0 end-0 m-2">
+                      <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                        <i class="bi bi-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="p-3">
+                    <h5 class="fw-bold mb-1">Margherita Pizza</h5>
+                    <p class="text-muted small mb-2">Fresh tomatoes, mozzarella, basil</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <del>$25.99</del> <span class="fw-bold text-danger">$14.99</span> 
+
+                        <button class="btn btn-outline-danger btn-sm add-to-cart"
+        data-id="1"
+        data-name="Margherita Pizza"
+        data-price="14.99">
+    Add to Cart
+</button>
+
+                       
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <!-- Menu Item 2 -->
+              <div class="col-lg-3 col-md-6">
+                <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+                  <div class="position-relative">
+                    <img src="../assets/img/menu/menu-item-2.png" class="w-100" alt="Dish 2" style="height: 200px; object-fit: cover;">
+                    <div class="position-absolute top-0 end-0 m-2">
+                      <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                        <i class="bi bi-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="p-3">
+                    <h5 class="fw-bold mb-1">Pasta Carbonara</h5>
+                    <p class="text-muted small mb-2">Creamy sauce, pancetta, egg</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <del>$27.99</del> <span class="fw-bold text-danger">$16.99</span>
+                      <button class="btn btn-outline-danger btn-sm add-to-cart"
+        data-id="2"
+        data-name="Pasta Carbonara"
+        data-price="16.99">
+    Add to Cart
+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+
+
+
+               <!-- Menu Item 3 -->
+        <div class="col-lg-3 col-md-6">
+            <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+              <div class="position-relative">
+                <img src="../assets/img/menu/menu-item-3.png" class="w-100" alt="Dish 3" style="height: 200px; object-fit: cover;">
+                <div class="position-absolute top-0 end-0 m-2">
+                  <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                    <i class="bi bi-heart"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="p-3">
+                <h5 class="fw-bold mb-1">Tiramisu</h5>
+                <p class="text-muted small mb-2">Classic Italian dessert</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <del>$29.99</del> <span class="fw-bold text-danger">$8.99</span>
+                  <button class="btn btn-outline-danger btn-sm add-to-cart"
+                  data-id="1"
+                  data-name="Tiramisu"
+                  data-price="8.99">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+           <!-- Menu Item 2 -->
+           <div class="col-lg-3 col-md-6">
+            <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+              <div class="position-relative">
+                <img src="../assets/img/menu/menu-item-2.png" class="w-100" alt="Dish 2" style="height: 200px; object-fit: cover;">
+                <div class="position-absolute top-0 end-0 m-2">
+                  <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                    <i class="bi bi-heart"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="p-3">
+                <h5 class="fw-bold mb-1">Pasta Carbonara</h5>
+                <p class="text-muted small mb-2">Creamy sauce, pancetta, egg</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <del>$27.99</del> <span class="fw-bold text-danger">$16.99</span>
+                  <button class="btn btn-outline-danger btn-sm add-to-cart"
+    data-id="2"
+    data-name="Pasta Carbonara"
+    data-price="16.99">
+Add to Cart
+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+
+
+
+           <!-- Menu Item 3 -->
+        <div class="col-lg-3 col-md-6">
+            <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+              <div class="position-relative">
+                <img src="../assets/img/menu/menu-item-3.png" class="w-100" alt="Dish 3" style="height: 200px; object-fit: cover;">
+                <div class="position-absolute top-0 end-0 m-2">
+                  <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                    <i class="bi bi-heart"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="p-3">
+                <h5 class="fw-bold mb-1">Tiramisu</h5>
+                <p class="text-muted small mb-2">Classic Italian dessert</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <del>$29.99</del> <span class="fw-bold text-danger">$8.99</span>
+                  <button class="btn btn-outline-danger btn-sm add-to-cart"
+                  data-id="1"
+                  data-name="Tiramisu"
+                  data-price="8.99">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+           <!-- Menu Item 3 -->
+        <div class="col-lg-3 col-md-6">
+            <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+              <div class="position-relative">
+                <img src="../assets/img/menu/menu-item-3.png" class="w-100" alt="Dish 3" style="height: 200px; object-fit: cover;">
+                <div class="position-absolute top-0 end-0 m-2">
+                  <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                    <i class="bi bi-heart"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="p-3">
+                <h5 class="fw-bold mb-1">Tiramisu</h5>
+                <p class="text-muted small mb-2">Classic Italian dessert</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <del>$29.99</del> <span class="fw-bold text-danger">$8.99</span>
+                  <button class="btn btn-outline-danger btn-sm add-to-cart"
+                  data-id="1"
+                  data-name="Tiramisu"
+                  data-price="8.99">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          
+              <!-- Menu Item 3 -->
+              <div class="col-lg-3 col-md-6">
+                <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+                  <div class="position-relative">
+                    <img src="../assets/img/menu/menu-item-3.png" class="w-100" alt="Dish 3" style="height: 200px; object-fit: cover;">
+                    <div class="position-absolute top-0 end-0 m-2">
+                      <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                        <i class="bi bi-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="p-3">
+                    <h5 class="fw-bold mb-1">Tiramisu</h5>
+                    <p class="text-muted small mb-2">Classic Italian dessert</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <del>$29.99</del> <span class="fw-bold text-danger">$8.99</span>
+                      <button class="btn btn-outline-danger btn-sm add-to-cart"
+                        data-id="3"
+                        data-name="Tiramisu"
+                        data-price="8.99">
+                    Add to Cart
+                </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+                <!-- Menu Item 3 -->
+        <div class="col-lg-3 col-md-6">
+            <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+              <div class="position-relative">
+                <img src="../assets/img/menu/menu-item-3.png" class="w-100" alt="Dish 3" style="height: 200px; object-fit: cover;">
+                <div class="position-absolute top-0 end-0 m-2">
+                  <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                    <i class="bi bi-heart"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="p-3">
+                <h5 class="fw-bold mb-1">Tiramisu</h5>
+                <p class="text-muted small mb-2">Classic Italian dessert</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <del>$29.99</del> <span class="fw-bold text-danger">$8.99</span>
+                  <button class="btn btn-outline-danger btn-sm add-to-cart"
+                  data-id="1"
+                  data-name="Tiramisu"
+                  data-price="8.99">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+            </div>
+          </div>
+        </div>
+
+
+
+<!-- Menu Items Grid2 starters -->
+<div class="tab-content" id="menuTabContent">
+    <div class="tab-pane fade show" id="starters">
+      <div class="row g-4">
+        <!-- Menu Item 1 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+            <div class="position-relative">
+              <img src="../assets/img/menu/menu-item-1.png" class="w-100" alt="Dish 1" style="height: 200px; object-fit: cover;">
+              <div class="position-absolute top-0 end-0 m-2">
+                <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+            <div class="p-3">
+              <h5 class="fw-bold mb-1">Margherita Pizza</h5>
+              <p class="text-muted small mb-2">Fresh tomatoes, mozzarella, basil</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <del>$23.99</del> <span class="fw-bold text-danger">$14.99</span>
+               
+                <button class="btn btn-outline-danger btn-sm add-to-cart"
+                data-id="1"
+                data-name="Margherita Pizza"
+                data-price="14.99">
+            Add to Cart
+        </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Menu Item 4 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+            <div class="position-relative">
+              <img src="../assets/img/menu/menu-item-1.png" class="w-100" alt="Dish 4" style="height: 200px; object-fit: cover;">
+              <div class="position-absolute top-0 end-0 m-2">
+                <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+            <div class="p-3">
+              <h5 class="fw-bold mb-1">Bruschetta</h5>
+              <p class="text-muted small mb-2">Toasted bread with toppings</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <del>$22.99</del> <span class="fw-bold text-danger">$7.99</span>
+                <button class="btn btn-outline-danger btn-sm add-to-cart"
+                data-id="1"
+                data-name="Bruschetta"
+                data-price="7.99">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Menu Items Grid 3 starters -->
+<div class="tab-content" id="menuTabContent">
+    <div class="tab-pane fade show" id="mains">
+      <div class="row g-4">
+        <!-- Menu Item 1 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+            <div class="position-relative">
+              <img src="../assets/img/menu/menu-item-1.png" class="w-100" alt="Dish 1" style="height: 200px; object-fit: cover;">
+              <div class="position-absolute top-0 end-0 m-2">
+                <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+            <div class="p-3">
+              <h5 class="fw-bold mb-1">Margherita Pizza</h5>
+              <p class="text-muted small mb-2">Fresh tomatoes, mozzarella, basil</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <del>$23.99</del> <span class="fw-bold text-danger">$14.99</span>
+               
+                <button class="btn btn-outline-danger btn-sm add-to-cart"
+                data-id="1"
+                data-name="Margherita Pizza"
+                data-price="14.99">
+            Add to Cart
+        </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+ <!-- Menu Item 3 -->
+ <div class="col-lg-3 col-md-6">
+    <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+      <div class="position-relative">
+        <img src="../assets/img/menu/menu-item-3.png" class="w-100" alt="Dish 3" style="height: 200px; object-fit: cover;">
+        <div class="position-absolute top-0 end-0 m-2">
+          <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+            <i class="bi bi-heart"></i>
+          </button>
+        </div>
+      </div>
+      <div class="p-3">
+        <h5 class="fw-bold mb-1">Tiramisu</h5>
+        <p class="text-muted small mb-2">Classic Italian dessert</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <del>$29.99</del> <span class="fw-bold text-danger">$8.99</span>
+          <button class="btn btn-outline-danger btn-sm add-to-cart"
+          data-id="1"
+          data-name="Tiramisu"
+          data-price="8.99">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+        <!-- Menu Item 2 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+            <div class="position-relative">
+              <img src="../assets/img/menu/menu-item-2.png" class="w-100" alt="Dish 2" style="height: 200px; object-fit: cover;">
+              <div class="position-absolute top-0 end-0 m-2">
+                <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+            <div class="p-3">
+              <h5 class="fw-bold mb-1">Pasta Carbonara</h5>
+              <p class="text-muted small mb-2">Creamy sauce, pancetta, egg</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <del>$21.99</del> <span class="fw-bold text-danger">$16.99</span>
+                <button class="btn btn-outline-danger btn-sm add-to-cart"
+                data-id="2"
+                data-name="Pasta Carbonara"
+                data-price="16.99">
+            Add to Cart
+        </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+         <!-- Menu Item 2 -->
+         <div class="col-lg-3 col-md-6">
+            <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+              <div class="position-relative">
+                <img src="../assets/img/menu/menu-item-2.png" class="w-100" alt="Dish 2" style="height: 200px; object-fit: cover;">
+                <div class="position-absolute top-0 end-0 m-2">
+                  <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                    <i class="bi bi-heart"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="p-3">
+                <h5 class="fw-bold mb-1">Pasta Carbonara</h5>
+                <p class="text-muted small mb-2">Creamy sauce, pancetta, egg</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <del>$27.99</del> <span class="fw-bold text-danger">$16.99</span>
+                  <button class="btn btn-outline-danger btn-sm add-to-cart"
+                    data-id="2"
+                    data-name="Pasta Carbonara"
+                    data-price="16.99">
+                Add to Cart
+                </button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+          
+        <!-- Menu Item 3 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+            <div class="position-relative">
+              <img src="../assets/img/menu/menu-item-3.png" class="w-100" alt="Dish 3" style="height: 200px; object-fit: cover;">
+              <div class="position-absolute top-0 end-0 m-2">
+                <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+            <div class="p-3">
+              <h5 class="fw-bold mb-1">Tiramisu</h5>
+              <p class="text-muted small mb-2">Classic Italian dessert</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <del>$29.99</del> <span class="fw-bold text-danger">$8.99</span>
+                <button class="btn btn-outline-danger btn-sm add-to-cart"
+                data-id="1"
+                data-name="Tiramisu"
+                data-price="8.99">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Menu Item 4 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+            <div class="position-relative">
+              <img src="../assets/img/menu/menu-item-1.png" class="w-100" alt="Dish 4" style="height: 200px; object-fit: cover;">
+              <div class="position-absolute top-0 end-0 m-2">
+                <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+            <div class="p-3">
+              <h5 class="fw-bold mb-1">Bruschetta</h5>
+              <p class="text-muted small mb-2">Toasted bread with toppings</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <del>$20.99</del> <span class="fw-bold text-danger">$7.99</span>
+                <button class="btn btn-outline-danger btn-sm add-to-cart"
+                data-id="1"
+                data-name="Bruschetta"
+                data-price="7.99">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+<!-- Menu Items Grid 4 starters -->
+<div class="tab-content" id="menuTabContent">
+    <div class="tab-pane fade show" id="desserts">
+      <div class="row g-4">
+        <!-- Menu Item 1 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+            <div class="position-relative">
+              <img src="../assets/img/menu/menu-item-1.png" class="w-100" alt="Dish 1" style="height: 200px; object-fit: cover;">
+              <div class="position-absolute top-0 end-0 m-2">
+                <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+            <div class="p-3">
+              <h5 class="fw-bold mb-1">Margherita Pizza</h5>
+              <p class="text-muted small mb-2">Fresh tomatoes, mozzarella, basil</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <del>$43.99</del> <span class="fw-bold text-danger">$14.99</span>
+                
+                <button class="btn btn-outline-danger btn-sm add-to-cart"
+                data-id="1"
+                data-name="Margherita Pizza"
+                data-price="14.99">
+            Add to Cart
+        </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Menu Item 3 -->
+        <div class="col-lg-3 col-md-6">
+            <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+              <div class="position-relative">
+                <img src="../assets/img/menu/menu-item-3.png" class="w-100" alt="Dish 3" style="height: 200px; object-fit: cover;">
+                <div class="position-absolute top-0 end-0 m-2">
+                  <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                    <i class="bi bi-heart"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="p-3">
+                <h5 class="fw-bold mb-1">Tiramisu</h5>
+                <p class="text-muted small mb-2">Classic Italian dessert</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <del>$29.99</del> <span class="fw-bold text-danger">$8.99</span>
+                  <button class="btn btn-outline-danger btn-sm add-to-cart"
+                  data-id="1"
+                  data-name="Tiramisu"
+                  data-price="8.99">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!-- Menu Item 3 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="menu-item bg-white rounded-3 shadow-sm overflow-hidden">
+            <div class="position-relative">
+              <img src="../assets/img/menu/menu-item-3.png" class="w-100" alt="Dish 3" style="height: 200px; object-fit: cover;">
+              <div class="position-absolute top-0 end-0 m-2">
+                <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+            <div class="p-3">
+              <h5 class="fw-bold mb-1">Tiramisu</h5>
+              <p class="text-muted small mb-2">Classic Italian dessert</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <del>$39.99</del> <span class="fw-bold text-danger">$8.99</span>
+                <button class="btn btn-outline-danger btn-sm add-to-cart"
+                data-id="1"
+                data-name="Tiramisu"
+                data-price="8.99">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    
+  </section>
+
+    
+
+  
+       
+  </div>
+  
+   
+
+ 
+
+
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Vendor JS Files -->
+
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/js/navbar.js"></script>
+
+
+  <!-- Main JS File -->
+
+  <script src="../assets/js/main.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize the carousel with no auto-sliding
+      var carousel = new bootstrap.Carousel(document.getElementById('restaurantCarousel'), {
+        interval: false,
+        wrap: true
+      });
+    });
+    </script>
+      <script src="../assets/js/cart.js"></script>
+
+
+</body>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("menuSearch");
+    const searchBtn = document.getElementById("search-btn");
+    const cards = document.querySelectorAll(".menu-item");
+
+    function performSearch() {
+      const term = searchInput.value.toLowerCase().trim();
+      let matchFound = false;
+
+      cards.forEach((card) => {
+        const name = card.querySelector("h5").innerText.toLowerCase();
+        const desc = card.querySelector("p").innerText.toLowerCase();
+        const isMatch = name.includes(term) || desc.includes(term);
+
+        card.closest(".col-lg-3").style.display = isMatch ? "block" : "none";
+        if (isMatch) matchFound = true;
+      });
+
+      // If nothing matches, show SweetAlert
+      if (!matchFound) {
+        Swal.fire({
+          icon: "error",
+          title: "No dishes match your search",
+          text: "Please try a different search term or use the filter options.",
+          background: "#fef3f3",
+          confirmButtonColor: "#d33",
+          confirmButtonText: "Okay",
+          customClass: {
+            title: "fw-bold",
+            popup: "rounded-4 shadow",
+            confirmButton: "btn btn-danger"
+          }
+        });
+      }
+    }
+
+    searchInput.addEventListener("input", performSearch);
+    searchBtn.addEventListener("click", performSearch);
+  });
+</script>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggleBtn = document.getElementById('toggleAdvanced');
+      const advancedFilters = document.querySelector('.advanced-filters');
+      
+      toggleBtn.addEventListener('click', function() {
+        const isHidden = advancedFilters.style.display === 'none';
+        advancedFilters.style.display = isHidden ? 'block' : 'none';
+        toggleBtn.textContent = isHidden ? 'Hide Advanced Filters' : 'Show Advanced Filters';
+      });
+    });
+    </script>
+
+</html>

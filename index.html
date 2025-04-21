@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>LeftOLuv</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Yummy
+  * Template URL: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+<style>
+  .impact-context {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.4;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #eaeaea;
+    font-style: italic;
+  }
+
+</style>
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">Left<span class="text-danger">O</span>Luv</h1>
+      </a>
+
+      <!-- Navigation Menu -->
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="#hero" class="active">Home</a></li>
+        <li><a href="#about" class="active">Find a Restaurant</a></li>
+        <li><a href="pages/dishes.html" class="active">Dishes </a></li>
+        <li><a href="#review1" class="active">Reviews</a></li>
+        <li><a href="#stats" class="active">Community Impact</a></li>
+
+
+        <span id="dynamic-nav"></span> <!-- Dynamic Content Here -->
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Right Side Items -->
+    <div class="d-flex align-items-center gap-3">
+      <div id="user-info">
+        <a class="btn-getstarted" href="signin.html" id="signin-btn">Sign In</a>
+      </div>
+      <a href="pages/cart.html" class="cart-icon position-relative">
+        <i class="bi bi-cart"></i>
+        <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+      </a>
+      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+    </div>
+  </div>
+</header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section light-background">
+
+      <div class="container">
+        <div class="row gy-4 justify-content-center justify-content-lg-between">
+          <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center">
+            <h1 data-aos="fade-up"style="color: black;">Reduce Food Waste<br>Enjoy Affordable Meals</h1>
+            <p data-aos="fade-up" data-aos-delay="100" style="color: black;">Connecting restaurants with people to save fresh leftover food at discounted prices. Buy quality meals, reduce waste, and make a difference.</p>
+            <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+             <!--
+              <a href="#about" class="btn-get-started">Get Started</a>
+              --> 
+              <button id="getStartedBtn" class="btn btn-custom btn-lg">Get Started</button>
+
+              <!--<a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+            -->
+            </div>
+          </div>
+          <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
+            <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
+    <div class="modal fade" id="introModal" tabindex="-1" aria-labelledby="introModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="introModalLabel">Welcome to LeftOLuv!</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>LeftOLuv helps you find leftover food at discounted prices, saving money and reducing waste.</p>
+            <p>Discover quality meals from your favorite restaurants with a simple and efficient ordering process.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button id="continueBtn" type="button" class="btn btn-custom">Continue to Browse</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+     <!-- About Section -->
+ <section id="about" class="about section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Feeling hungry?<br></h2>
+    <p><span> Find Restaurants in your area </span> <span class="description-title"></span></p>
+  </div><!-- End Section Title -->
+  
+  <div class="container">
+
+    <!-- Restaurant Section -->
+<div class="container py-5">
+  <div class="row gy-4">
+    <!-- Left Column with Main Image -->
+    <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
+     <a href="pages/restaurants.html"> <img src="assets/img/about.jpg" class="img-fluid rounded shadow-sm mb-4" alt=""> </a> 
+    </div>
+
+    <div class="col-lg-5" data-aos="fade-up" data-aos-delay="250">
+      <div class="d-flex justify-content-end mb-3">
+        <a href="pages/restaurants.html" class="btn btn-danger px-4">View More </a>
+      </div>
+      
+      <div class="content ps-0 ps-lg-5" style="padding:10px;">
+        <!-- Heart Icon -->
+        <div class="position-relative">
+          <div class="position-absolute top-0 end-0 bg-white rounded-circle p-2 shadow-sm" style="transform: translateY(-50%); z-index: 1000;">
+            <i class="bi bi-heart-fill text-danger" style="font-size: 1.5rem;"></i>
+          </div>
+        </div>
+       
+        <!-- Carousel -->
+        <div id="restaurantCarousel" class="carousel slide" data-bs-ride="false">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#restaurantCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#restaurantCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#restaurantCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          
+          <div class="carousel-inner rounded shadow-sm">
+            <!-- Restaurant 1 -->
+            <div class="carousel-item active">
+              <div class="carousel-image-container">
+                <img src="assets/img/restaurant_1.jpg" class="d-block w-100" alt="Restaurant Image 1">
+              </div>
+              <!-- Restaurant 1 Details -->
+              <div class="restaurant-details mt-4 p-3 bg-white rounded shadow-sm">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <div>
+                    <h3 class="mb-1 fw-bold h5"> <span> <a href="pages/restaurant.html" >La Piazza</a></span></h3>
+
+                    <div class="text-muted">
+                      <i class="bi bi-geo-alt-fill me-1 text-danger"></i>
+                      <span>123 Italian Avenue, Downtown</span>
+                    </div>
+                  </div>
+                  <div class="rating-badge bg-danger text-white px-2 py-1 rounded">
+                    <i class="bi bi-star-fill me-1 "></i>
+                    <span>4.8</span>
+                  </div>
+                </div>
+                <div class="restaurant-tags mt-2">
+                  <span class="badge bg-light text-dark me-2">Italian</span>
+                  <span class="badge bg-light text-dark me-2">$$$</span>
+                  <span class="badge bg-light text-dark">Open Now</span>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Restaurant 2 -->
+            <div class="carousel-item">
+              <div class="carousel-image-container">
+                <img src="assets/img/restaurant_2.jpg" class="d-block w-100" alt="Restaurant Image 2">
+              </div>
+              <!-- Restaurant 2 Details -->
+              <div class="restaurant-details mt-4 p-3 bg-white rounded shadow-sm">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <div>
+                    <h3 class="mb-1 fw-bold">Sushi Master</h3>
+                    <div class="text-muted">
+                      <i class="bi bi-geo-alt-fill me-1 text-danger"></i>
+                      <span>456 Ocean Drive, Seaside</span>
+                    </div>
+                  </div>
+                  <div class="rating-badge bg-danger text-white px-2 py-1 rounded">
+                    <i class="bi bi-star-fill me-1"></i>
+                    <span>4.6</span>
+                  </div>
+                </div>
+                <div class="restaurant-tags mt-2">
+                  <span class="badge bg-light text-dark me-2">Japanese</span>
+                  <span class="badge bg-light text-dark me-2">$$</span>
+                  <span class="badge bg-light text-dark">Open Now</span>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Restaurant 3 -->
+            <div class="carousel-item">
+              <div class="carousel-image-container">
+                <img src="assets/img/restaurant_3.jpg" class="d-block w-100" alt="Restaurant Image 3">
+              </div>
+              <!-- Restaurant 3 Details -->
+              <div class="restaurant-details mt-4 p-3 bg-white rounded shadow-sm">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <div>
+                    <h3 class="mb-1 fw-bold">The Grill House</h3>
+                    <div class="text-muted">
+                      <i class="bi bi-geo-alt-fill me-1 text-danger"></i>
+                      <span>789 Steakhouse Blvd, Uptown</span>
+                    </div>
+                  </div>
+                  <div class="rating-badge bg-danger text-white px-2 py-1 rounded">
+                    <i class="bi bi-star-fill me-1"></i>
+                    <span>4.7</span>
+                  </div>
+                </div>
+                <div class="restaurant-tags mt-2">
+                  <span class="badge bg-light text-dark me-2">Steakhouse</span>
+                  <span class="badge bg-light text-dark me-2">$$$$</span>
+                  <span class="badge bg-light text-dark">Open Now</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <button class="carousel-control-prev" type="button" data-bs-target="#restaurantCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#restaurantCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+   
+  </div>
+ 
+
+</section><!-- /About Section -->
+
+<section id="review1" class="reviews section text-center">
+
+
+
+
+
+<section id="reviews" class="reviews section light-background py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">What Our Users Say</h2>
+    <div class="row">
+      
+      <!-- Review 1 -->
+      <div class="col-md-6">
+        <div class="review-card p-4 shadow-sm">
+          <div class="d-flex align-items-center mb-3">
+            <img src="assets/img/user1.jpg" alt="User 1" class="review-avatar">
+            <div>
+              <h5 class="mb-0">Anonymous User 1</h5>
+              <small>Food Enthusiast</small>
+            </div>
+          </div>
+          <div class="review-stars mb-2">
+            ⭐⭐⭐⭐⭐
+          </div>
+          <p class="review-text">
+            "This platform has helped me find affordable, quality meals while reducing food waste. It feels great to contribute to sustainability!"
+          </p>
+        </div>
+      </div>
+
+      <!-- Review 2 -->
+      <div class="col-md-6">
+        <div class="review-card p-4 shadow-sm">
+          <div class="d-flex align-items-center mb-3">
+            <img src="assets/img/user2.jpg" alt="User 2" class="review-avatar">
+            <div>
+              <h5 class="mb-0">Anonymous User 2</h5>
+              <small>Student</small>
+            </div>
+          </div>
+          <div class="review-stars mb-2">
+            ⭐⭐⭐⭐⭐
+          </div>
+          <p class="review-text">
+            "As a student, this app has been a lifesaver. I can get delicious meals at lower prices and help reduce waste!"
+          </p>
+        </div>
+      </div>
+
+      <!-- Review 3 -->
+      <div class="col-md-6">
+        <div class="review-card p-4 shadow-sm">
+          <div class="d-flex align-items-center mb-3">
+            <img src="assets/img/user3.jpg" alt="User 3" class="review-avatar">
+            <div>
+              <h5 class="mb-0">Anonymous User 3</h5>
+              <small>Restaurant Owner</small>
+            </div>
+          </div>
+          <div class="review-stars mb-2">
+            ⭐⭐⭐⭐⭐
+          </div>
+          <p class="review-text">
+            "This platform allows me to sell leftover but fresh food instead of throwing it away. It’s a win-win for everyone!"
+          </p>
+        </div>
+      </div>
+
+      <!-- Review 4 -->
+      <div class="col-md-6">
+        <div class="review-card p-4 shadow-sm">
+          <div class="d-flex align-items-center mb-3">
+            <img src="assets/img/user4.jpg" alt="User 4" class="review-avatar">
+            <div>
+              <h5 class="mb-0">Anonymous User 4</h5>
+              <small>Freelancer</small>
+            </div>
+          </div>
+          <div class="review-stars mb-2">
+            ⭐⭐⭐⭐⭐
+          </div>
+          <p class="review-text">
+            "I love that I can find great meals while supporting restaurants in reducing waste. It's an amazing initiative!"
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="stats" class="stats section text-center">
+  <div class="container">
+    <h2 class="text-center mb-4" style="font-family: 'Inter', Arial, Helvetica, sans-serif; text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em;">The Difference We Make</h2>
+
+    <div class="row gy-4">
+      
+      <div class="col-lg-3 col-md-6">
+        <div class="stats-item">
+          <i class="bi bi-box"></i>
+          <span data-purecounter-start="0" data-purecounter-end="500" data-purecounter-duration="2" class="purecounter"></span>
+          <p>Meals Saved</p>
+          <div class ="impact-context"> Equivalent to feeding 125 families for a day. </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="stats-item">
+          <i class="bi bi-people"></i>
+          <span data-purecounter-start="0" data-purecounter-end="200" data-purecounter-duration="2" class="purecounter"></span>
+          <p>Users Impacted</p>
+          <div class="impact-context">Creating food access for our community</div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="stats-item">
+          <i class="bi bi-trash"></i>
+          <span data-purecounter-start="0" data-purecounter-end="1000" data-purecounter-duration="2" class="purecounter"></span>
+          <p>kg of Food Waste Reduced</p>
+          <div class="impact-context">Preventing 450 kg of CO2 emissions</div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="stats-item">
+          <i class="bi bi-shop"></i>
+          <span data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="2" class="purecounter"></span>
+          <p>Restaurants Partnered</p>
+          <div class="impact-context">Supporting local businesses in our area</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/purecounterjs@1.0.2/dist/purecounter_vanilla.js"></script>
+<script>
+  new PureCounter();
+</script>
+</section>
+
+
+    <!-- Contact Section -->
+  <section id="contact" class="contact section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Contact</h2>
+      <p><span>Need Help? Contact Us </span> </p>
+    </div><!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+      <div class="mb-5">
+        <iframe style="width: 100%; height: 400px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3105.3530926815384!2d-77.3063743!3d38.8462239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b64c7d6cbf7a8b%3A0x8fbb3f68819e20f5!2sMain%20St%2C%20Fairfax%2C%20VA!5e0!3m2!1sen!2sus!4v1708112107425" 
+        frameborder="0" allowfullscreen=""></iframe>
+      </div><!-- End Google Maps -->
+
+      <div class="row gy-4">
+
+        <div class="col-md-6">
+          <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="200">
+            <i class="icon bi bi-geo-alt flex-shrink-0"></i>
+            <div>
+              <h3>Address</h3>
+              <p>Main Street, Fairfax, VA 22030</p>
+            </div>
+          </div>
+        </div><!-- End Info Item -->
+
+        <div class="col-md-6">
+          <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="300">
+            <i class="icon bi bi-telephone flex-shrink-0"></i>
+            <div>
+              <h3>Call Us</h3>
+              <p>+1 5589 55488 55</p>
+            </div>
+          </div>
+        </div><!-- End Info Item -->
+
+        <div class="col-md-6">
+          <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="400">
+            <i class="icon bi bi-envelope flex-shrink-0"></i>
+            <div>
+              <h3>Email Us</h3>
+              <p>info@example.com</p>
+            </div>
+          </div>
+        </div><!-- End Info Item -->
+
+        <div class="col-md-6">
+          <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="500">
+            <i class="icon bi bi-clock flex-shrink-0"></i>
+            <div>
+              <h3>Opening Hours<br></h3>
+              <p><strong>Mon-Sat:</strong> 11AM - 23PM; <strong>Sunday:</strong> Closed</p>
+            </div>
+          </div>
+        </div><!-- End Info Item -->
+
+      </div>
+
+  <!-- Scroll Top -->
+<!--- Authorised Sign In-->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let user = JSON.parse(localStorage.getItem("loggedInUser"));
+    let userInfoDiv = document.getElementById("user-info");
+
+    if (user) {
+      let dashboardLink = user.role === "owner" ? `<a href="pages/restaurant-dashboard.html" class="btn btn-custom">Dashboard</a>` : "";
+      
+      userInfoDiv.innerHTML = `
+        ${dashboardLink}
+        <span>Hi, ${user.name} </span>
+        <button id="logout-btn" class="btn btn-outline-danger ms-3">Logout</button>
+      `;
+
+      document.getElementById("logout-btn").addEventListener("click", function () {
+        localStorage.removeItem("loggedInUser");
+        window.location.reload();
+      });
+    } else {
+      userInfoDiv.innerHTML = `
+        <a class="btn-getstarted" href="signin.html" id="signin-btn">Sign In</a>
+      `;
+    }
+  });
+</script>
+
+
+
+
+
+
+
+
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/cart.js"></script>
+
+  <script>
+    // Trigger modal on Get Started click
+    document.getElementById('getStartedBtn').addEventListener('click', function() {
+      var introModal = new bootstrap.Modal(document.getElementById('introModal'));
+      introModal.show();
+    });
+
+    // Continue button: hide modal and navigate to the Find a Restaurant section
+    document.getElementById('continueBtn').addEventListener('click', function() {
+      var introModalEl = document.getElementById('introModal');
+      var modalInstance = bootstrap.Modal.getInstance(introModalEl);
+      modalInstance.hide();
+      // Redirect to the 'About' section or restaurant listings page
+      window.location.href = "#about";
+    });
+  </script>
+
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize the carousel with no auto-sliding
+      var carousel = new bootstrap.Carousel(document.getElementById('restaurantCarousel'), {
+        interval: false,
+        wrap: true
+      });
+    });
+    </script>
+</body>
+
+</html>

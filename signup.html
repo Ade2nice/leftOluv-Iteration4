@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+
+  <style>
+    .error {
+      color: red;
+      font-size: 0.875rem;
+      margin-top: 5px;
+      display: none;
+    }
+    .error-border {
+      border: 2px solid red;
+    }
+  </style>
+</head>
+<body>
+  
+  <header class="header sticky-top bg-light p-3 shadow-sm">
+    <div class="container d-flex justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">Left<span class="text-danger">O</span>Luv</h1>
+      </a>
+      <a href="signin.html" class="btn btn-danger">Sign In</a>
+     </div>
+    
+      
+      <nav>
+        
+    </div>
+  </header>
+  
+  <main class="container mt-4">
+    <h2 class="text-center">Sign Up</h2>
+    <p class="text-center">Choose your account type to create an account.</p>
+    
+    <div class="row justify-content-center">
+      <div class="col-md-5">
+        <div class="card p-4">
+          <h3 class="text-center">User Sign Up</h3>
+          <form id="user-signup-form" novalidate>
+            <div class="mb-3">
+              <label for="user-name" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="user-name">
+              <div class="error" id="user-name-error">Full Name is required.</div>
+            </div>
+            <div class="mb-3">
+              <label for="user-email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="user-email">
+              <div class="error" id="user-email-error">Valid email is required.</div>
+            </div>
+            <div class="mb-3">
+              <label for="user-password" class="form-label">Password</label>
+            
+              <div class="input-group">
+                <input type="password" class="form-control" id="user-password">
+                <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                  <i class="fa fa-eye text-danger"></i>
+                </button>
+              </div>
+            
+              <div class="error" id="user-password-error">Password must be at least 6 characters.</div>
+            </div>
+            
+            <button type="submit" class="btn btn-custom w-100">Sign Up</button>
+            <p class="text-center mt-3">Restaurant Owner? <a href="signup_restaurant.html">Sign Up</a></p>
+          </form>
+        </div>
+      </div>
+      
+      
+    </div>
+  </main>
+
+  <script>
+    function registerUser(formId, role) {
+      document.getElementById(formId).addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        let nameField = document.getElementById(formId === 'user-signup-form' ? "user-name" : "restaurant-name");
+        let emailField = document.getElementById(formId === 'user-signup-form' ? "user-email" : "owner-email");
+        let passwordField = document.getElementById(formId === 'user-signup-form' ? "user-password" : "owner-password");
+
+        let name = nameField.value.trim();
+        let email = emailField.value.trim().toLowerCase();
+        let password = passwordField.value.trim();
+
+        let nameError = document.getElementById(formId === 'user-signup-form' ? "user-name-error" : "restaurant-name-error");
+        let emailError = document.getElementById(formId === 'user-signup-form' ? "user-email-error" : "owner-email-error");
+        let passwordError = document.getElementById(formId === 'user-signup-form' ? "user-password-error" : "owner-password-error");
+
+        let isValid = true;
+
+        // Clear previous errors
+        nameField.classList.remove("error-border");
+        emailField.classList.remove("error-border");
+        passwordField.classList.remove("error-border");
+        nameError.style.display = "none";
+        emailError.style.display = "none";
+        passwordError.style.display = "none";
+
+        // Name Validation
+        if (!name) {
+          nameError.style.display = "block";
+          nameField.classList.add("error-border");
+          isValid = false;
+        }
+
+        // Email Validation
+        if (!email || !email.includes("@")) {
+          emailError.style.display = "block";
+          emailField.classList.add("error-border");
+          isValid = false;
+        }
+
+        // Password Validation
+        if (!password || password.length < 6) {
+          passwordError.style.display = "block";
+          passwordField.classList.add("error-border");
+          isValid = false;
+        }
+
+        if (!isValid) return;
+
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+
+        if (users.some(user => user.email === email)) {
+          alert("This email is already registered. Please sign in.");
+          return;
+        }
+
+        users.push({ name, email, password, role });
+        localStorage.setItem("users", JSON.stringify(users));
+
+        alert(`${role === "owner" ? "Restaurant Owner" : "User"} account created successfully!`);
+        window.location.href = 'signin.html';
+      });
+    }
+
+    registerUser('user-signup-form', 'user');
+    registerUser('restaurant-signup-form', 'owner');
+  </script>
+  <script>
+    document.getElementById('togglePassword').addEventListener('click', function() {
+  const passwordField = document.getElementById('user-password');
+  const icon = this.querySelector('i');
+
+  if (passwordField.type === 'password') {
+    passwordField.type = 'text';
+    icon.classList.remove('fa-eye');
+    icon.classList.add('fa-eye-slash');
+  } else {
+    passwordField.type = 'password';
+    icon.classList.remove('fa-eye-slash');
+    icon.classList.add('fa-eye');
+  }
+});
+
+  </script>
+  <script>
+    document.getElementById('togglePassword2').addEventListener('click', function() {
+  const passwordField = document.getElementById('owner-password');
+  const icon = this.querySelector('i');
+
+  if (passwordField.type === 'password') {
+    passwordField.type = 'text';
+    icon.classList.remove('fa-eye');
+    icon.classList.add('fa-eye-slash');
+  } else {
+    passwordField.type = 'password';
+    icon.classList.remove('fa-eye-slash');
+    icon.classList.add('fa-eye');
+  }
+});
+</script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
