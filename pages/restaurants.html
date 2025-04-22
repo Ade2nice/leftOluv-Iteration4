@@ -137,6 +137,10 @@
                 <label class="form-check-label" for="nameSearch">By Name</label>
                 </div>
                 <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="searchType" id="priceSearch" value="price">
+                  <label class="form-check-label" for="priceSearch">By Price</label>
+                  </div>
+                <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="searchType" id="locationSearch" value="location">
                 <label class="form-check-label" for="locationSearch">By Location</label>
                 </div>
@@ -277,6 +281,79 @@
         <!-- Add more name-based restaurant cards here -->
 </div>
 <!--------End of name-based-->  
+
+
+
+<!-- Location-based Restaurants -->
+<div id="priceBasedRestaurants" class="restaurant-set row g-4" style="display: none;">
+  <!-- Restaurant Card - Location Set 1 -->
+  <!-- Restaurant Card 3 -->
+  <div class="col-lg-4 col-md-6">
+      <div class="restaurant-card">
+        <div class="restaurant-image position-relative">
+          <img src="../assets/img/restaurant_3.jpg" class="img-fluid rounded-top w-100" alt="Restaurant 3">
+          <div class="rating-badge bg-danger text-white px-2 py-1 rounded position-absolute top-0 end-0 m-3">
+            <i class="bi bi-star-fill me-1"></i>
+            <span>4.7</span>
+          </div>
+        </div>
+        <div class="restaurant-details p-3 bg-white rounded-bottom shadow-sm">
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            <div>
+              <h3 class="mb-1 fw-bold h5"><span> <a href="restaurant.html" >The Grill House</a></span> </h3>
+              <div class="text-muted">
+                <i class="bi bi-geo-alt-fill me-1 text-danger"></i>
+                <span>789 Steakhouse Blvd, Uptown</span>
+              </div>
+            </div>
+          </div>
+          <div class="restaurant-tags mt-2">
+            <span class="badge bg-light text-dark me-2">Steakhouse</span>
+            <span class="badge bg-light text-dark me-2">$$$$</span>
+            <span class="badge bg-light text-dark">Open Now</span>
+          </div>
+        </div>
+      </div>
+      </div>
+
+
+
+
+
+<!-- Restaurant Card 1 -->
+<div class="col-lg-4 col-md-6">
+  <div class="restaurant-card">
+    <div class="restaurant-image position-relative">
+      <img src="../assets/img/restaurant_1.jpg" class="img-fluid rounded-top w-100" alt="Restaurant 1">
+      <div class="rating-badge bg-danger text-white px-2 py-1 rounded position-absolute top-0 end-0 m-3">
+        <i class="bi bi-star-fill me-1"></i>
+        <span>4.8</span>
+      </div>
+    </div>
+    <div class="restaurant-details p-3 bg-white rounded-bottom shadow-sm">
+      <div class="d-flex justify-content-between align-items-start mb-2">
+        <div>
+          <h3 class="mb-1 fw-bold h5"><span> <a href="../pages/restaurant.html" >La Piazza</a></span></h3>
+          <div class="text-muted">
+            <i class="bi bi-geo-alt-fill me-1 text-danger"></i>
+            <span>123 Italian Avenue, Downtown</span>
+          </div>
+        </div>
+      </div>
+      <div class="restaurant-tags mt-2">
+        <span class="badge bg-light text-dark me-2">Italian</span>
+        <span class="badge bg-light text-dark me-2">$$$</span>
+        <span class="badge bg-light text-dark">Open Now</span>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- Add more location-based restaurant cards here -->
+</div>
+  
+
+
+
   
 
 <!-- Location-based Restaurants -->
@@ -472,8 +549,9 @@
     const restaurantSections = {
         name: document.getElementById('nameBasedRestaurants'),
         location: document.getElementById('locationBasedRestaurants'),
-        cuisine: document.getElementById('cuisineBasedRestaurants')
-    };
+        cuisine: document.getElementById('cuisineBasedRestaurants'),
+        price: document.getElementById('priceBasedRestaurants')
+    }
 
     // Hide all restaurant sections initially
     function hideAllSections() {
@@ -720,7 +798,11 @@
                 set.style.display = 'flex';
             } else if ((filterType.includes('Location') || filterType === 'byLocation') && set.id === 'locationBasedRestaurants') {
                 set.style.display = 'flex';
-            } else if ((filterType.includes('Cuisine') || filterType === 'byCuisine') && set.id === 'cuisineBasedRestaurants') {
+            }
+            else if ((filterType.includes('Price') || filterType === 'byPrice') && set.id === 'priceBasedRestaurants') {
+                set.style.display = 'flex';
+            } 
+            else if ((filterType.includes('Cuisine') || filterType === 'byCuisine') && set.id === 'cuisineBasedRestaurants') {
                 set.style.display = 'flex';
             } else {
                 set.style.display = 'none';

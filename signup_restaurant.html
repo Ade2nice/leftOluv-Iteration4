@@ -4,11 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up</title>
+
+  <!-- Bootstrap + Icons + FontAwesome -->
   <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
 
   <style>
     .error {
@@ -24,41 +25,38 @@
 </head>
 <body>
   
+  <!-- Header -->
   <header class="header sticky-top bg-light p-3 shadow-sm">
     <div class="container d-flex justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-          <!-- Uncomment the line below if you also wish to use an image logo -->
-          <!-- <img src="assets/img/logo.png" alt=""> -->
-          <h1 class="sitename">Left<span class="text-danger">O</span>Luv</h1>
-        </a>
-        <a href="signin.html" class="btn btn-danger">Sign In</a>
-       </div>
-        <nav>
-        
-      </nav>
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <h1 class="sitename">Left<span class="text-danger">O</span>Luv</h1>
+      </a>
+      <a href="signin.html" class="btn btn-danger">Sign In</a>
     </div>
   </header>
   
+  <!-- Main Content -->
   <main class="container mt-4">
-    <h2 class="text-center">Sign Up</h2>
-   
-    
     <div class="row justify-content-center">
       <div class="col-md-5">
         <div class="card p-4">
           <h3 class="text-center">Restaurant Owner Sign Up</h3>
           <form id="restaurant-signup-form" novalidate>
+            <!-- Restaurant Name -->
             <div class="mb-3">
               <label for="restaurant-name" class="form-label">Restaurant Name</label>
               <input type="text" class="form-control" id="restaurant-name">
               <div class="error" id="restaurant-name-error">Restaurant Name is required.</div>
             </div>
+
+            <!-- Email -->
             <div class="mb-3">
               <label for="owner-email" class="form-label">Email</label>
               <input type="email" class="form-control" id="owner-email">
               <div class="error" id="owner-email-error">Valid email is required.</div>
             </div>
-           
+
+            <!-- Password -->
             <div class="mb-3">
               <label for="owner-password" class="form-label">Password</label>
               <div class="input-group">
@@ -70,55 +68,78 @@
               <div class="error" id="owner-password-error">Password must be at least 6 characters.</div>
             </div>
 
-            <button type="submit" class="btn btn-custom w-100">Sign Up</button>
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-danger w-100">Sign Up</button>
           </form>
         </div>
       </div>
     </div>
   </main>
 
+  <!-- Bootstrap Bundle -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Password Toggle Script -->
   <script>
+    document.getElementById('togglePassword2').addEventListener('click', function () {
+      const passwordField = document.getElementById('owner-password');
+      const icon = this.querySelector('i');
+
+      if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+      } else {
+        passwordField.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+      }
+    });
+  </script>
+
+  <!-- Form Validation & Registration -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      registerUser('restaurant-signup-form', 'owner');
+    });
+
     function registerUser(formId, role) {
-      document.getElementById(formId).addEventListener('submit', function(event) {
+      document.getElementById(formId).addEventListener('submit', function (event) {
         event.preventDefault();
 
-        let nameField = document.getElementById(formId === 'user-signup-form' ? "user-name" : "restaurant-name");
-        let emailField = document.getElementById(formId === 'user-signup-form' ? "user-email" : "owner-email");
-        let passwordField = document.getElementById(formId === 'user-signup-form' ? "user-password" : "owner-password");
+        // Get form field references
+        let nameField = document.getElementById("restaurant-name");
+        let emailField = document.getElementById("owner-email");
+        let passwordField = document.getElementById("owner-password");
 
         let name = nameField.value.trim();
         let email = emailField.value.trim().toLowerCase();
         let password = passwordField.value.trim();
 
-        let nameError = document.getElementById(formId === 'user-signup-form' ? "user-name-error" : "restaurant-name-error");
-        let emailError = document.getElementById(formId === 'user-signup-form' ? "user-email-error" : "owner-email-error");
-        let passwordError = document.getElementById(formId === 'user-signup-form' ? "user-password-error" : "owner-password-error");
+        // Error elements
+        let nameError = document.getElementById("restaurant-name-error");
+        let emailError = document.getElementById("owner-email-error");
+        let passwordError = document.getElementById("owner-password-error");
 
         let isValid = true;
 
-        // Clear previous errors
-        nameField.classList.remove("error-border");
-        emailField.classList.remove("error-border");
-        passwordField.classList.remove("error-border");
-        nameError.style.display = "none";
-        emailError.style.display = "none";
-        passwordError.style.display = "none";
+        // Reset errors
+        [nameField, emailField, passwordField].forEach(field => field.classList.remove("error-border"));
+        [nameError, emailError, passwordError].forEach(e => e.style.display = "none");
 
-        // Name Validation
+        // Validation
         if (!name) {
           nameError.style.display = "block";
           nameField.classList.add("error-border");
           isValid = false;
         }
 
-        // Email Validation
         if (!email || !email.includes("@")) {
           emailError.style.display = "block";
           emailField.classList.add("error-border");
           isValid = false;
         }
 
-        // Password Validation
         if (!password || password.length < 6) {
           passwordError.style.display = "block";
           passwordField.classList.add("error-border");
@@ -127,8 +148,8 @@
 
         if (!isValid) return;
 
+        // Simulate backend with localStorage
         let users = JSON.parse(localStorage.getItem("users")) || [];
-
         if (users.some(user => user.email === email)) {
           alert("This email is already registered. Please sign in.");
           return;
@@ -141,43 +162,6 @@
         window.location.href = 'signin.html';
       });
     }
-
-    registerUser('user-signup-form', 'user');
-    registerUser('restaurant-signup-form', 'owner');
   </script>
-  <script>
-    document.getElementById('togglePassword').addEventListener('click', function() {
-  const passwordField = document.getElementById('user-password');
-  const icon = this.querySelector('i');
-
-  if (passwordField.type === 'password') {
-    passwordField.type = 'text';
-    icon.classList.remove('fa-eye');
-    icon.classList.add('fa-eye-slash');
-  } else {
-    passwordField.type = 'password';
-    icon.classList.remove('fa-eye-slash');
-    icon.classList.add('fa-eye');
-  }
-});
-
-  </script>
-  <script>
-    document.getElementById('togglePassword2').addEventListener('click', function() {
-  const passwordField = document.getElementById('owner-password');
-  const icon = this.querySelector('i');
-
-  if (passwordField.type === 'password') {
-    passwordField.type = 'text';
-    icon.classList.remove('fa-eye');
-    icon.classList.add('fa-eye-slash');
-  } else {
-    passwordField.type = 'password';
-    icon.classList.remove('fa-eye-slash');
-    icon.classList.add('fa-eye');
-  }
-});
-</script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
